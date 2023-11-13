@@ -14,4 +14,10 @@ public interface FilmService {
     Iterable<FilmEntity> getAvaiable();
     Iterable<FilmEntity> getExpired();
     FilmEntity createFilm(FilmEntity film);
+    void resetDailyGain();
+    void resetWeeklyGain();
+    void resetMonthlyGain();
+    void saveReportMonthlyGain(Integer filmId, double monthlyGain);
+    void saveReportWeeklyGain(Integer filmId, double weeklyGain);
+    void saveReportDailyGain(Integer filmId, double dailyGain);
 }

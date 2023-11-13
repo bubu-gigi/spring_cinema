@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class FilmServiceImpl implements FilmService {
 
-    private FilmRepository filmRepository;
+    private final FilmRepository filmRepository;
 
     public FilmServiceImpl(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
@@ -47,5 +47,22 @@ public class FilmServiceImpl implements FilmService {
     public Iterable<FilmEntity> getExpired() {
         return filmRepository.getExpired();
     }
+
+    //@Override
+    public void resetDailyGain() {
+        filmRepository.resetDailyGain();
+    }
+
+    public void resetWeeklyGain() {
+        filmRepository.resetDailyGain();
+    }
+
+    public void resetMonthlyGain() {
+        filmRepository.resetDailyGain();
+    }
+    public void saveReportMonthlyGain(Integer filmId, double monthlyGain){ filmRepository.saveMonthlyGain(filmId, monthlyGain); }
+    public void saveReportWeeklyGain(Integer filmId, double weeklyGain){ filmRepository.saveWeeklyGain(filmId, weeklyGain); }
+    public void saveReportDailyGain(Integer filmId, double dailyGain){ filmRepository.saveDailyGain(filmId, dailyGain); }
+
 
 }

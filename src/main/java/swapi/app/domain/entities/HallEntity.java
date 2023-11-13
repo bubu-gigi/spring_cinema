@@ -28,16 +28,14 @@ public class HallEntity {
     @Column(name = "base_seats")
     private Integer baseSeats;
 
-    @Column(name = "sold_base_seats")
-    @Value("${props.sold_base_seats: 0}")
+    @Column(columnDefinition = "integer default 0",name = "sold_base_seats")
     @JsonIgnore
     private Integer soldBaseSeats;
 
     @Column(name = "vip_seats")
     private Integer vipSeats;
 
-    @Column(name = "sold_vip_seats")
-    @Value("${props.sold_vip_seats: 0}")
+    @Column(columnDefinition = "integer default 0", name = "sold_vip_seats")
     @JsonIgnore
     private Integer soldVipSeats;
 

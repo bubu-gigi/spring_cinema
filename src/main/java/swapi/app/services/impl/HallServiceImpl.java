@@ -11,7 +11,7 @@ import java.util.Optional;
 @Component
 public class HallServiceImpl implements HallService {
 
-    final HallRepository hallRepository;
+    private final HallRepository hallRepository;
 
     public HallServiceImpl(HallRepository hallRepository) {
         this.hallRepository = hallRepository;
@@ -27,5 +27,11 @@ public class HallServiceImpl implements HallService {
 
     public HallEntity createHall(HallEntity hall) {
         return hallRepository.save(hall);
+    }
+    public void resetBaseSeats(){
+        hallRepository.resetBaseSeats();
+    }
+    public void resetVipSeats(){
+        hallRepository.resetVipSeats();
     }
 }

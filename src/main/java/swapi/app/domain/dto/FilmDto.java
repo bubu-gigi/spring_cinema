@@ -14,5 +14,10 @@ public class FilmDto {
     private Integer id;
     private String status;
     private String title;
-    private String description;
+    private Integer pellicole;
+    private String releaseDate;
+    private Double dailyGain;
+    private Double weeklyGain;
+    private Double monthlyGain;
+    private Double totGain;
 }
