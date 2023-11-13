@@ -39,7 +39,7 @@ public class BookingServiceImpl implements BookingService {
             Optional<TicketEntity> ticket = ticketRepository.findByFilmId(bookingEntity.getFilmId());
             if(ticket.isEmpty())
                 return null;
-            Optional<HallEntity> hall = hallRepository.findByFilmId(bookingEntity.getHallId());
+            Optional<HallEntity> hall = hallRepository.findById(bookingEntity.getHallId());
             if(hall.isEmpty())
                 return null;
             if(hall.get().getSoldVipSeats() == hall.get().getVipSeats())
@@ -60,7 +60,7 @@ public class BookingServiceImpl implements BookingService {
             Optional<TicketEntity> ticket = ticketRepository.findByFilmId(bookingEntity.getFilmId());
             if(ticket.isEmpty())
                 return null;
-            Optional<HallEntity> hall = hallRepository.findByFilmId(bookingEntity.getHallId());
+            Optional<HallEntity> hall = hallRepository.findById(bookingEntity.getHallId());
             if(hall.isEmpty())
                 return null;
             if(hall.get().getSoldBaseSeats() == hall.get().getBaseSeats())

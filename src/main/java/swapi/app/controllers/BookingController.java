@@ -26,7 +26,7 @@ public class BookingController {
     }
 
     @PostMapping(path = "/api/bookings/{vip}")
-    public ResponseEntity<?> postBooking(@PathVariable(required = false, name = "vip") String vip, @RequestBody BookingDto bookingDto) {
+    public ResponseEntity<?> postBooking(@PathVariable(value = "vip", required = false) String vip, @RequestBody BookingDto bookingDto) {
         BookingEntity bookingEntity = bookingMapper.mapFrom(bookingDto);
         var result = bookingService.createBooking(bookingEntity, vip);
         if(result == null)
