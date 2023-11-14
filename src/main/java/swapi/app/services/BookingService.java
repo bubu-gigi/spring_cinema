@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface BookingService {
 
     Iterable<BookingEntity> getBookings();
-
+    Optional<BookingEntity> findById(Integer id);
+    void deleteById(Integer id);
     Optional<BookingEntity> createBooking(BookingEntity bookingEntity, String vip);
 }

@@ -60,6 +60,9 @@ public class FilmServiceImpl implements FilmService {
     public void resetMonthlyGain() {
         filmRepository.resetDailyGain();
     }
+    public void deleteById(Integer id){
+        filmRepository.deleteById(id);
+    }
     public void saveReportMonthlyGain(Integer filmId, double monthlyGain){ filmRepository.saveMonthlyGain(filmId, monthlyGain); }
     public void saveReportWeeklyGain(Integer filmId, double weeklyGain){ filmRepository.saveWeeklyGain(filmId, weeklyGain); }
     public void saveReportDailyGain(Integer filmId, double dailyGain){ filmRepository.saveDailyGain(filmId, dailyGain); }

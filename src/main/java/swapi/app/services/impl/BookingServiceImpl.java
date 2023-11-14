@@ -32,6 +32,12 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    public Optional<BookingEntity> findById(Integer id){ return bookingRepository.findById(id); }
+
+    @Override
+    public void deleteById(Integer id){ bookingRepository.deleteById(id); }
+
+    @Override
     public Optional<BookingEntity> createBooking(BookingEntity bookingEntity, String vip){
         if(vip != null) {
             bookingEntity.setIsVip(true);

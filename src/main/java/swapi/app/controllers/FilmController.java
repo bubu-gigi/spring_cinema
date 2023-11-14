@@ -83,6 +83,15 @@ public class FilmController {
         return list;
     }
 
+    @DeleteMapping(path = "/api/films/{id}")
+    public ResponseEntity<?> deleteFilm(@PathVariable(name = "id") Integer id) {
+        Optional<FilmEntity> filmEntity = filmService.getFilm(id);
+        if(filmEntity.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        filmService.deleteById(id);
+        return new ResponseEntity<>(filmEntity, HttpStatus.OK);
+    }
+
     //@PutMapping(path = "api/films")
     /*public FilmDto put(@RequestBody FilmDto film) {
         FilmEntity filmEn = filmMapper.mapFrom(film);

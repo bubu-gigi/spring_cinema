@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface TicketService {
     Iterable<TicketEntity> getTickets();
     Optional<TicketEntity> getTicket(Integer id);
-
+    void deleteById(Integer id);
     TicketEntity createTicket(TicketEntity ticketEntity);
 }

@@ -50,4 +50,13 @@ public class TicketController {
         ticketService.createTicket(ticketEn);
         return new ResponseEntity<>(ticketMapper.mapTo(ticketEn), HttpStatus.CREATED);
     }
+
+    @DeleteMapping(path = "/api/tickets/{id}")
+    public ResponseEntity<?> deleteTicket(@PathVariable(name = "id") Integer id) {
+        Optional<TicketEntity> ticket = ticketService.getTicket(id);
+        if(ticket.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        ticketService.deleteById(id);
+        return new ResponseEntity<>(ticket, HttpStatus.OK);
+    }
 }

@@ -28,6 +28,7 @@ public class HallServiceImpl implements HallService {
     public HallEntity createHall(HallEntity hall) {
         return hallRepository.save(hall);
     }
+    public void deleteById(Integer id){ hallRepository.deleteById(id); }
     public void resetBaseSeats(){
         hallRepository.resetBaseSeats();
     }

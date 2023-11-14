@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface FilmService {
     Iterable<FilmEntity> getFilms();
     Optional<FilmEntity> getFilm(Integer id);
+    void deleteById(Integer id);
     Iterable<FilmEntity> getComingSoon();
     Iterable<FilmEntity> getAvaiable();
     Iterable<FilmEntity> getExpired();

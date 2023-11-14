@@ -26,6 +26,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     public Optional<TicketEntity> getTicketByFilmId(Integer id) { return ticketRepository.findByFilmId(id); }
+    public void deleteById(Integer id){ ticketRepository.deleteById(id); }
 
     public TicketEntity createTicket(TicketEntity ticketEntity) {
         return ticketRepository.save(ticketEntity);

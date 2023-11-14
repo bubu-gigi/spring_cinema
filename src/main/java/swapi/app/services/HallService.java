@@ -12,6 +12,8 @@ public interface HallService {
 
     Optional<HallEntity> getHall(Integer id);
     HallEntity createHall(HallEntity hall);
+    void deleteById(Integer id);
     void resetBaseSeats();
     void resetVipSeats();
+
 }

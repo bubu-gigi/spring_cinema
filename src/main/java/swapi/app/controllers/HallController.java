@@ -43,6 +43,15 @@ public class HallController {
         return new ResponseEntity<>(hallMapper.mapTo(hallEntity), HttpStatus.CREATED);
     }
 
+    @DeleteMapping(path = "/api/halls/{id}")
+    public ResponseEntity<?> deleteHall(@PathVariable(name = "id") Integer id) {
+        Optional<HallEntity> hall = hallService.getHall(id);
+        if(hall.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        hallService.deleteById(id);
+        return new ResponseEntity<>(hall, HttpStatus.OK);
+    }
+
     @GetMapping(path = "/api/halls/{id}")
     public ResponseEntity<HallDto> getHall(@PathVariable("id") Integer id) {
         Optional<HallEntity> hallEntity = hallService.getHall(id);
